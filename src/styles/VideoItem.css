@@ -3,6 +3,7 @@
   align-items: center !important;
   cursor: pointer;
   margin: 5px 0 !important;
+  overflow: auto;
 }
 
 .video-item.item img {

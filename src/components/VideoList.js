@@ -8,7 +8,7 @@ const VideoList = ({ videos, onSelectedVideo }) => {
   });
 
   return (
-    <div className="ui relaxed divided list segment">
+    <div className="ui relaxed divided list segment container">
       {videosList}
     </div>
   );
