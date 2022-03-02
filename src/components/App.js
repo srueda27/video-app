@@ -33,7 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container" style={{ marginTop: '10px' }}>
-        <SearchBar inputText='Video Search: ' onVideoSearch={this.onSearchSubmit} />
+        <SearchBar inputLabel='Video Search: ' onVideoSearch={this.onSearchSubmit} />
         <div className="ui grid">
           <div className="ui row">
             <div className="ten wide column">
