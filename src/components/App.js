@@ -1,30 +1,23 @@
 import React, { useEffect, useState } from "react";
+import useVideos from "../hooks/useVideos";
 
-import youtube from "../apis/youtube";
 import SearchBar from "./SearchBar";
 import VideoDetail from "./VideoDetail";
 import VideoList from "./VideoList";
 
 const App = () => {
-  const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  
+  const [videos, search] = useVideos('archery'); //custom hook
 
   useEffect(() => {
-    onSearchSubmit('archery');
-  }, []);
-
-  const onSearchSubmit = async videoSearch => {
-    const response = await youtube.get('/search', {
-      params: { q: videoSearch }
-    });
-
-    setVideos(response.data.items);
-    setSelectedVideo(response.data.items[0]);
-  }
-
+    setSelectedVideo(videos[0]);
+  }, [videos]); //when you want useEffect to be triggered
+                //in this case, everytime the list of videos change
+  
   return (
     <div className="ui container" style={{ marginTop: '10px' }}>
-      <SearchBar inputLabel='Video Search: ' onVideoSearch={onSearchSubmit} />
+      <SearchBar inputLabel='Video Search: ' onVideoSearch={search} />
       <div className="ui grid">
         <div className="ui row">
           <div className="ten wide column">
