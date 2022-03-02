@@ -7,7 +7,7 @@ const SearchBar = ({ onVideoSearch, inputLabel }) => {
   const onFormSubmit = event => {
     event.preventDefault();
 
-    onVideoSearch(setInputValue(inputValue));
+    onVideoSearch(inputValue);
   }
 
   return (
@@ -18,7 +18,7 @@ const SearchBar = ({ onVideoSearch, inputLabel }) => {
           <input
             type='text'
             value={inputValue}
-            onChange={e => setInputValue({ inputValue: e.target.value })} />
+            onChange={e => setInputValue(e.target.value)} />
         </div>
       </form>
     </div>
